@@ -1,4 +1,13 @@
-const names = [
+export interface Names {
+  id: number;
+  name: string;
+  socio?: string;
+  product: Product;
+}
+
+export type Product = "p1" | "p2";
+
+const names: Names[] = [
   {
     id: 1,
     name: "client1",
@@ -12,6 +21,6 @@ const names = [
   },
 ];
 
-export const products = ["p1", "p2"];
+export const products = ["p1", "p2"] as const;
 
 export default names;
