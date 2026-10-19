@@ -2,19 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VUE</title>
+    <title>Document</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-
     <div id="miApp">
-      <h3>{{message}}</h3>
-      <p>{{product}}</p>
+      <h1>Clientes</h1>
+      <button @click="toggleAuthor">Toggle</button>
+      <hr />
 
-      <button v-on:click="changeName">Cambiar mensaje</button>
+      <ul>
+        <li v-for="({author, quote}, index) in quotes">
+          {{index +1}} - {{quote}}
+          <div v-if="showAuthor">{{author}}</div>
+        </li>
+      </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

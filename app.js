@@ -1,31 +1,43 @@
+const quotes = [
+  {
+    quote: "And I promise you, the dawn is coming.",
+    author: "Harvey Dent, The Dark Knight",
+  },
+  {
+    quote: "I believe what doesn’t kill you simply makes you, stranger.",
+    author: "The Joker, The Dark Knight",
+  },
+  {
+    quote: "Your but will destroy you… As it almost did me",
+    author: "Henri Ducard, Batman Begins",
+  },
+  {
+    quote: "You either die a he see yourself become the villain.",
+    author: "Harvey Dent, The Dark Knight",
+  },
+  {
+    quote: "If you’re good at something, never do it for free.",
+    author: "The Joker, The Dark Knight",
+  },
+  {
+    quote: "Yes, father. I shall become a bat.",
+    author: "Bruce Wayne/Batman, Batman: Year One",
+  },
+];
+
 const { createApp, ref } = Vue;
 
+for (const quote of quotes) {
+  console.log(quote);
+}
+
 const app = createApp({
-  /* template: `
-    <h1>{{message}}</h1>
-    <p>{{product}}</p>
-  `, */
-
   setup() {
-    const message = ref("No es el cliente");
-    const product = ref("chocolates");
-
-    const changeName = () => {
-      message.value = "Si es cliente";
-      product.value = "Bombones";
+    const showAuthor = ref(true);
+    const toggleAuthor = () => {
+      showAuthor.value = !showAuthor.value;
     };
-
-    /* setTimeout(() => {
-      message.value = "Si es cliente";
-      product.value = "Bombones";
-    }, 1000);
-    */
-
-    return {
-      message,
-      product,
-      changeName,
-    };
+    return { quotes, showAuthor, toggleAuthor };
   },
 });
 
