@@ -3,18 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>VUE</title>
   </head>
   <body>
     <div id="miApp">
-      <h1>Clientes</h1>
+      <h1>Clientes {{totalQuotes}}</h1>
+      <input type="text" placeholder="add quote" @keypress.enter="addQuote" />
+      <br />
+      <br />
       <button @click="toggleAuthor">Toggle</button>
+      <!-- <button @click="addQuote">Add quote</button> -->
       <hr />
 
       <ul>
         <li v-for="({author, quote}, index) in quotes">
           {{index +1}} - {{quote}}
-          <div v-if="showAuthor">{{author}}</div>
+          <div v-show="showAuthor">{{author}}</div>
         </li>
       </ul>
     </div>

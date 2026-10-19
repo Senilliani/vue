@@ -1,4 +1,4 @@
-const quotes = [
+const originalQuotes = [
   {
     quote: "And I promise you, the dawn is coming.",
     author: "Harvey Dent, The Dark Knight",
@@ -25,19 +25,23 @@ const quotes = [
   },
 ];
 
-const { createApp, ref } = Vue;
-
-for (const quote of quotes) {
-  console.log(quote);
-}
+const { createApp, ref, computed } = Vue;
 
 const app = createApp({
   setup() {
     const showAuthor = ref(true);
+    const quotes = ref(originalQuotes);
+    const totalQuotes = computed(() => quotes.value.length);
+
     const toggleAuthor = () => {
       showAuthor.value = !showAuthor.value;
     };
-    return { quotes, showAuthor, toggleAuthor };
+
+    const addQuote = () => {
+      quotes.value.unshift({ quote: "Hola y chau", author: "Nadie" });
+      console.log(quotes);
+    };
+    return { quotes, showAuthor, toggleAuthor, addQuote, totalQuotes };
   },
 });
 
