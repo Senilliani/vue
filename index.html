@@ -8,11 +8,15 @@
   <body>
     <div id="miApp">
       <h1>Clientes {{totalQuotes}}</h1>
-      <input type="text" placeholder="add quote" @keypress.enter="addQuote" />
+      <input
+        type="text"
+        placeholder="add quote"
+        @keypress.enter="addQuote"
+        v-model="newMessage"
+      />
       <br />
       <br />
       <button @click="toggleAuthor">Toggle</button>
-      <!-- <button @click="addQuote">Add quote</button> -->
       <hr />
 
       <ul>

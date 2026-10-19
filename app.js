@@ -32,16 +32,24 @@ const app = createApp({
     const showAuthor = ref(true);
     const quotes = ref(originalQuotes);
     const totalQuotes = computed(() => quotes.value.length);
+    const newMessage = ref("");
 
     const toggleAuthor = () => {
       showAuthor.value = !showAuthor.value;
     };
 
     const addQuote = () => {
-      quotes.value.unshift({ quote: "Hola y chau", author: "Nadie" });
-      console.log(quotes);
+      quotes.value.unshift({ quote: newMessage.value, author: "Nadie" });
+      newMessage.value = "";
     };
-    return { quotes, showAuthor, toggleAuthor, addQuote, totalQuotes };
+    return {
+      quotes,
+      showAuthor,
+      toggleAuthor,
+      addQuote,
+      totalQuotes,
+      newMessage,
+    };
   },
 });
 
