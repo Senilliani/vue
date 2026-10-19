@@ -1,4 +1,4 @@
-export interface Examples {
+export interface reqresResponse {
   page: number;
   per_page: number;
   total: number;
