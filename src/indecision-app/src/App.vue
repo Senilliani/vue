@@ -22,7 +22,6 @@ const increment = () => {
 const decrement = () => {
   counter.value = counter.value - 1 // counter--
 }
-}
 </script>
 
 <style scoped></style>
