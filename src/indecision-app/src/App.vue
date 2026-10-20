@@ -1,7 +1,7 @@
 <template>
   <h1>VUE APP</h1>
 
-  <MyCounter />
+  <MyCounter :valor="7" />
 </template>
 
 <script lang="ts" setup>
