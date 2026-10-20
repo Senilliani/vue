@@ -1,5 +1,7 @@
 <template>
-  <h1>VUE APP</h1>
+  <h1 class="text-3xl font-bold underline text-blue-600">
+    ¡Tailwind funcionando!
+  </h1>
 
   <MyCounter :valor="1" />
   <MyCounterScript :valor="2" />
