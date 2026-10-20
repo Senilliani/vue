@@ -1,47 +1,28 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Lo hiciste!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <section>
+    <h3>Counter: {{ counter }}</h3>
+    <h3>Square: {{ squareCounter }}</h3>
+  </section>
+  <div>
+    <button @click="increment">+ 1</button>
+    <button @click="decrement">- 1</button>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script lang="ts" setup>
+import { computed, ref } from 'vue';
+
+const counter = ref(2)
+const squareCounter = computed(() => counter.value * counter.value)
+
+const increment = () => {
+  counter.value = counter.value + 1 // counter++
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+const decrement = () => {
+  counter.value = counter.value - 1 // counter--
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 }
-</style>
+</script>
+
+<style scoped></style>
