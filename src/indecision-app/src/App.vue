@@ -3,8 +3,8 @@
     ¡Tailwind funcionando!
   </h1>
 
-  <MyCounter :valor="1" />
-  <MyCounterScript :valor="2" />
+  <MyCounter />
+  <MyCounterScript />
   <MyCounterScript2 :valor="3" />
 </template>
 

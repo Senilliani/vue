@@ -10,25 +10,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { useCounter } from '@/composables/useCounter';
 
 interface Props {
-  valor: number
+  valor?: number
 }
 
 const props = defineProps<Props>()
+const { counter, squareCounter, increment, decrement } = useCounter(props.valor)
 
-const counter = ref(props.valor)
-const squareCounter = computed(() => counter.value * counter.value)
-
-const increment = () => {
-  counter.value = counter.value + 1 // counter++
-}
-
-const decrement = () => {
-  counter.value = counter.value - 1 // counter--
-}
 </script>
+
 <style scoped>
 .btn {
   @apply p-5 bg-blue-200 mr-2 hover:bg-blue-700 rounded;

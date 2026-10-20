@@ -1,3 +1,4 @@
+import { useCounter } from '@/composables/useCounter'
 import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
@@ -5,12 +6,13 @@ export default defineComponent({
     valor: { type: Number, required: true },
   },
   setup(props) {
-    const counter = ref(props.valor)
-    const squareCounter = computed(() => counter.value * counter.value)
+    const { counter, squareCounter, increment, decrement } = useCounter(props.valor!)
 
     return {
       counter,
       squareCounter,
+      increment,
+      decrement,
     }
   },
 })
