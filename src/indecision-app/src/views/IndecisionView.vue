@@ -4,7 +4,7 @@
       <span>Amiga</span>
     </div>
     <ChatMessages :messages="messages" />
-    <MessageBox />
+    <MessageBox @send-message="handleMessage" />
   </div>
 </template>
 
@@ -33,4 +33,11 @@ const messages = ref<ChatMessage[]>([
   }
 ])
 
+const handleMessage = (text: string) => {
+  messages.value.push({
+    id: new Date().getTime(),
+    itsMine: true,
+    message: text
+  })
+}
 </script>
