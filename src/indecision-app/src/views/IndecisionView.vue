@@ -3,7 +3,7 @@
     <div class="bg-blue-500 p-4 text-white flex justify-between items-center">
       <span>Amiga</span>
     </div>
-    <ChatMessages :messages="messages" />
+    <ChatMessages :messages="messages" :is-loading="isLoading" />
     <MessageBox @send-message="handleMessage" />
   </div>
 </template>
@@ -13,5 +13,5 @@ import ChatMessages from '@/components/chat/ChatMessages.vue';
 import MessageBox from '@/components/chat/MessageBox.vue';
 import { useChat } from '@/composables/useChat';
 
-const { messages, handleMessage } = useChat()
+const { messages, handleMessage, isLoading } = useChat()
 </script>
