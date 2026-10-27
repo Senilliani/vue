@@ -5,5 +5,5 @@ exports[`<MyCounter/> > should match snapshot 1`] = `
   <h3 data-v-0352012b="">Counter: 5</h3>
   <h3 data-v-0352012b="" data-test-id="square-label">Square: 25</h3>
 </section>
-<div data-v-0352012b=""><button data-v-0352012b="" class="btn">+ 1</button><button data-v-0352012b="" class="btn">- 1</button></div>"
+<div data-v-0352012b=""><button data-v-0352012b="" class="btn">+ 1</button><button data-v-0352012b="" data-test-id="button-dec" class="btn">- 1</button></div>"
 `;
