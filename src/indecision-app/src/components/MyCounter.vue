@@ -1,7 +1,7 @@
 <template>
   <section>
     <h3>Counter: {{ counter }}</h3>
-    <h3>Square: {{ squareCounter }}</h3>
+    <h3 data-test-id="square-label">Square: {{ squareCounter }}</h3>
   </section>
   <div>
     <button class="btn" @click="increment">+ 1</button>
