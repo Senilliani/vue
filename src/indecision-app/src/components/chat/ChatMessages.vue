@@ -20,7 +20,7 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const { messages } = props
+// const { messages } = props
 
 const chatRef = ref<HTMLDivElement | null>(null)
 
@@ -30,9 +30,7 @@ setTimeout(() => {
   console.log(chatRef.value);
 }, 1000)
 
-watch(messages, () => {
-  console.log('messages cambió', messages.length);
-
+watch(props, () => {
   setTimeout(() => {
     chatRef.value?.scrollTo({
       top: chatRef.value.scrollHeight,
