@@ -28,7 +28,7 @@ const emits = defineEmits<{
 const message = ref()
 const sendMessage = () => {
   if (!message.value) return
-  console.log(message.value);
+
   emits('sendMessage', message.value)
   message.value = ""
 }
