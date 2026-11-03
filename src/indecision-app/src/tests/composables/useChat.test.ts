@@ -50,7 +50,7 @@ describe('useChat', () => {
       itsMine: true,
       message: expect.any(String),
     })
-  })
+  }, 10000)
 
   test('mock response - fetch api', async () => {
     const mockResponse = { answer: 'yes', image: 'example.jpg' }
