@@ -51,4 +51,27 @@ describe('useChat', () => {
       message: expect.any(String),
     })
   })
+
+  test('mock response - fetch api', async () => {
+    const mockResponse = { answer: 'yes', image: 'example.jpg' }
+    window.fetch = vi.fn(async () => {
+      return { json: async () => mockResponse } as Response
+    })
+
+    const text = 'Café?'
+    const { messages, handleMessage } = useChat()
+
+    await handleMessage(text)
+
+    await new Promise((r) => setTimeout(r, 1600))
+
+    const [, theirMessage] = messages.value
+
+    expect(theirMessage).toEqual({
+      id: expect.any(Number),
+      image: mockResponse.image,
+      itsMine: false,
+      message: mockResponse.answer,
+    })
+  })
 })
