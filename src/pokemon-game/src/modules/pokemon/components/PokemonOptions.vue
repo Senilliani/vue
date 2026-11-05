@@ -1,9 +1,12 @@
 <template>
   <section class="mt-5 flex flex-col">
     <button v-for="{ name, id } in options" :key="id" @click="$emit('selectedOption', id)"
-      class="capitalize shadow-md rounded-lg p-3 m-2 cursor-pointer w-40 text-center transition-all"
-      :class="blockSelection ? 'shadow-none bg-gray-100 pointer-events-none' : 'bg-white  hover:bg-gray-300'"
-      :disabled="blockSelection">
+      class="capitalize shadow-md rounded-lg p-3 m-2 cursor-pointer w-40 text-center transition-all" :class="[blockSelection ? 'shadow-none bg-gray-100 pointer-events-none' : 'bg-white  hover:bg-gray-300',
+      {
+        'correct': blockSelection && id === correctAnswer,
+        'incorrect': blockSelection && id !== correctAnswer
+      }
+      ]" :disabled="blockSelection">
       {{ name }}
     </button>
   </section>
@@ -15,6 +18,7 @@ import type { Pokemon } from '../interfaces';
 interface Props {
   options: Pokemon[],
   blockSelection: boolean,
+  correctAnswer: number,
 }
 
 defineProps<Props>()
@@ -26,4 +30,12 @@ defineEmits<{
 
 <style scoped>
 @import "tailwindcss";
+
+.correct {
+  @apply bg-blue-500 text-white
+}
+
+.incorrect {
+  @apply bg-red-100 opacity-90
+}
 </style>

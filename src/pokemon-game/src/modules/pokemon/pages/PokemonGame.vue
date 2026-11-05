@@ -9,7 +9,7 @@
     <h3 class="capitalize">{{ gameStatus }}</h3>
     <PokemonPicture :pokemon-id="randomPokemon?.id" :show-pokemon="gameStatus !== GameStatus.Playing" />
     <PokemonOptions :options="options" @selected-option="checkAnswer"
-      :blockSelection="gameStatus !== GameStatus.Playing" />
+      :blockSelection="gameStatus !== GameStatus.Playing" :correct-answer="randomPokemon?.id" />
   </section>
 </template>
 
