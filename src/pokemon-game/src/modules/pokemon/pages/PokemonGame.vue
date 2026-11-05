@@ -8,7 +8,7 @@
     <h1 class="mb-5">¿Quién es este Pokémon?</h1>
     <h3>{{ randomPokemon }}</h3>
     <PokemonPicture :pokemon-id="randomPokemon?.id" :show-pokemon="gameStatus !== GameStatus.Playing" />
-    <PokemonOptions />
+    <PokemonOptions :options="options" @selected-option="handleOption" />
   </section>
 </template>
 
@@ -18,7 +18,12 @@ import PokemonPicture from '../components/PokemonPicture.vue';
 import { usePokemonGame } from '../composables/usePokemonGame.ts';
 import { GameStatus } from '../interfaces/game-status.enum.ts';
 
-const { gameStatus, isLoading, randomPokemon } = usePokemonGame()
+const { gameStatus, isLoading, randomPokemon, pokemonsOptions: options } = usePokemonGame()
+
+const handleOption = (value: number) => {
+  console.log(value);
+
+}
 
 </script>
 
