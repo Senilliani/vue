@@ -8,7 +8,8 @@
     <h1 class="mb-5">¿Quién es este Pokémon?</h1>
     <h3 class="capitalize">{{ gameStatus }}</h3>
     <PokemonPicture :pokemon-id="randomPokemon?.id" :show-pokemon="gameStatus !== GameStatus.Playing" />
-    <PokemonOptions :options="options" @selected-option="checkAnswer" />
+    <PokemonOptions :options="options" @selected-option="checkAnswer"
+      :blockSelection="gameStatus !== GameStatus.Playing" />
   </section>
 </template>
 
