@@ -52,13 +52,8 @@ export const usePokemonGame = () => {
   }
 
   onMounted(async () => {
-    // await new Promise((r) => setTimeout(r, 2000))
-    console.log('onMounted')
-
     pokemons.value = await getPokemons()
     getNextRound()
-    console.log(pokemonsOptions.value)
-    console.log('onMounted process finished')
   })
 
   return {
